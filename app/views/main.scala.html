@@ -1,0 +1,38 @@
+@(title: String)(content: Html)(implicit lang:Lang, messages: play.api.i18n.Messages, flash: Flash)
+<html>
+<head>
+    <title>@title</title>
+    <link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("stylesheets/bootstrap.css")'>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+</head>
+<body>
+<div class="screenshot">
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="@routes.Application.index()">
+                    @Messages("application.name")
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        @if(flash.get("success").isDefined) {
+        <div class="alert alert-success">
+            @flash.get("success")
+        </div>
+        }
+        @if(flash.get("error").isDefined) {
+        <div class="alert alert-error">
+            @flash.get("error")
+        </div>
+        }
+
+        @content
+        @debug()
+    </div>
+</div>
+</body>
+</html>
