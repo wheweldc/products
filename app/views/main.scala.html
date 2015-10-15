@@ -6,17 +6,36 @@
     <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
 </head>
 <body>
-<div class="screenshot">
 
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="@routes.Application.index()">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navber"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="nav-barbrand" href="@routes.Application.index()">
                     @Messages("application.name")
-                </a>
+                    </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="@routes.Application.index()">Home</a>
+                    </li>
+                    <li>
+                        <a href="@routes.Application.index()">About</a>
+                    </li>
+                    <li>
+                        <a href="@routes.Application.index()">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 
     <div class="container">
         @if(flash.get("success").isDefined) {
@@ -32,7 +51,7 @@
 
         @content
         @debug()
+
     </div>
-</div>
 </body>
 </html>
